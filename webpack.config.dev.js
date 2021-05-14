@@ -13,7 +13,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 process.env.NODE_ENV = 'development';
 
 //to configure webpack we export js object
-module.exports = {
+developmentConfigObj = {
     //this tell environment to run only in development
     //and disable some production only feature in webpack. 
     mode: 'development',
@@ -73,6 +73,7 @@ module.exports = {
     }
 }
 
+module.exports = developmentConfigObj;
 
 //things to note:
 //webpack-dev-server by default run in watch mode.

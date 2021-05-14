@@ -16,6 +16,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webPackBundleAnalyzer = require('webpack-bundle-analyzer');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 //first let declare the node environment which helps plugins 
 //to knows that we are in development mode.
@@ -23,7 +24,7 @@ const webPackBundleAnalyzer = require('webpack-bundle-analyzer');
 process.env.NODE_ENV = 'production';
 
 //to configure webpack we export js object
-module.exports = {
+productionConfigObj = {
     //this tell environment to run only in development
     //and disable some production only feature in webpack. 
     mode: 'production',
@@ -52,6 +53,9 @@ module.exports = {
     plugins: [
         //Display bundle stats
         new webPackBundleAnalyzer.BundleAnalyzerPlugin({ analyzerMode: "static" }),
+
+        //Clean build for production
+        new CleanWebpackPlugin(),
 
         //we want css minify outside
         new MiniCssExtractPlugin({
@@ -116,6 +120,7 @@ module.exports = {
     }
 }
 
+module.exports = productionConfigObj;
 
 //things to note:
 //webpack-dev-server by default run in watch mode.
