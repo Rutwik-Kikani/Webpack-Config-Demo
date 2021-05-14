@@ -20,7 +20,7 @@ module.exports = {
 
     //this tell webpack to work with browser, 
     //we can set this to 'node' if we are working with node
-    target: 'web', 
+    target: 'web',
 
     //recommended for getting source-map for debugging.
     devtool: 'cheap-module-source-map',
@@ -32,14 +32,14 @@ module.exports = {
     //strange: because webpack doesn't output code in development mode
     //it serves our app from memory.
     //webpack requires this value so that our html can reference a bundle that has been serve from memory.
-    output:{
+    output: {
         path: path.resolve(__dirname, "build"),
         publicPath: '/', // this specifies the public url of output directory when it reference in browser
         filename: 'bundle.js',
     },
 
     //now will config devServer
-    devServer:{
+    devServer: {
         //this reduces the information that it writes to the cli
         stats: 'minimal',
         //this tell it's to overlay any error that occur in browser
@@ -48,7 +48,7 @@ module.exports = {
         historyApiFallback: true,
     },
     // plugins 
-    plugins:[
+    plugins: [
         //going to tell where to find our html
         new HtmlWebpackPlugin({
             template: 'src/index.html',
@@ -58,7 +58,7 @@ module.exports = {
 
     // tell webpack with file we want to use. add loaders
     // if more than one loaders then it works in bottom-up manner.
-    module:{
+    module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
@@ -68,7 +68,11 @@ module.exports = {
             {
                 test: /(\.css)$/,
                 use: ["style-loader", "css-loader"]
-            }
+            },
         ]
     }
 }
+
+
+//things to note:
+//webpack-dev-server by default run in watch mode.

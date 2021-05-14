@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Cedarville Cursive', cursive,'Courier New', Courier, monospace;
+    font-size:'12px';
+    color: white;
+}
+.main-container{
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    background-color: bisque;
+    justify-content: center;
+}

@@ -1,0 +1,9 @@
+.card-container{
+    display: flex;
+    width: 45vw; 
+    height: 60vh;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+}
